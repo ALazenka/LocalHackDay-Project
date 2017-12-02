@@ -1,5 +1,5 @@
 from flask import Flask
-import json, random
+import json, random,
 app = Flask(__name__)
 generated_ids = []
 
@@ -30,3 +30,4 @@ def logout(sid):
 	else:
 		generated_ids.remove(sid)
 		return json.dumps({"logged_out": True, "sid":sid})
+
