@@ -3,10 +3,6 @@ import json, random
 app = Flask(__name__)
 generated_ids = []
 
-@app.route('/<int:num>')
-def hello_world(num):
-	return "Hello, {0}!".format(num)
-
 @app.route('/')
 def generate_ID():
 	result = ""
@@ -27,4 +23,10 @@ def validate_id(sid):
 	else:
 		return json.dumps({"logged_in": True, "sid":sid})
 
-
+@app.route('/<string:sid>/logout')
+def logout(sid):
+	if sid not in generated_ids:
+		return json.dumps({"error_code": 666})
+	else:
+		generated_ids.remove(sid)
+		return json.dumps({"logged_out": True, "sid":sid})
