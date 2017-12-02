@@ -1,0 +1,69 @@
+<html>
+  <style>
+    .main {
+      display: grid;
+      grid-template-columns: 100%;
+    }
+
+    .main-row1 {
+      grid-row: 1;
+      background-color: blue;
+    }
+
+    .page-content {
+      display: grid;
+      grid-row: 2;
+    }
+
+    .news {
+      grid-column: 1;
+      grid-row: 1 / 2;
+      height: 500px;
+    }
+
+    .student-help {
+      grid-column: 2;
+      grid-row: 1;
+      height: 300px;
+    }
+
+    .my-courses {
+      grid-column: 2;
+      grid-row: 2;
+      height: 300px;
+    }
+
+    .resources {
+      grid-column: 1;
+      grid-row: 3;
+      height: 300px;
+    }
+
+    .calendar {
+      grid-column: 2;
+      grid-row: 3;
+      height: 200px;
+    }
+  </style>
+  <head>
+    <title>OnQ</title>
+  </head>
+  <body>
+    <div class="main">
+      <header class="main-row1">
+        Home
+      </header>
+      <div class="page-content">
+        <div class="news">
+          News
+        </div>
+        <div class="help">
+          Help
+        </div>
+        <div class="my-courses">My Courses</div>
+        <div class="resources">Resources</div>
+        <div class="calendar">Calendar</div>
+      </div>
+    </div>
+  </body>
+</html>
