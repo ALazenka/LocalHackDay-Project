@@ -1,5 +1,6 @@
 import React from 'react'
 import './LobbyPage.css'
+import axios from 'axios'
 
 class Lobby extends React.Component {
 
@@ -12,7 +13,7 @@ class Lobby extends React.Component {
 
   createNewLobby() {
     this.props.setPage('pizza-lobby')
-    args = Object.assign({
+    const args = Object.assign({
       method: 'get',
       headers: {
         Accept: 'application/json'
