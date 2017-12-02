@@ -1,5 +1,5 @@
 from flask import Flask
-import random
+import json, random
 app = Flask(__name__)
 generated_ids = []
 
@@ -17,13 +17,14 @@ def generate_ID():
 			else:
 				result += chr(ord("A")+int(random.uniform(0,25.9)))
 		generated_ids.append(result)
-	return "<h1>" + result + "</h1>\n" + str(generated_ids)
+
+	return json.dumps({"sid": result, "sid_list": generated_ids})
 
 @app.route('/<string:sid>')
 def validate_id(sid):
 	if sid not in generated_ids:
-		return "{0} does not exist".format(sid)
+		return json.dumps({"error_code": 666})
 	else:
-		return "<h1>YOU'RE IN {0} BITCH</h1>".format(sid)
+		return json.dumps({"logged_in": True, "sid":sid})
 
 
