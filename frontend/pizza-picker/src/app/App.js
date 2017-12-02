@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import axios from 'axios'
 import './App.css'
 import Header from '../header/Header'
 import HomePage from '../Pages/Home/HomePage'
@@ -10,7 +11,8 @@ class App extends Component {
     super();
     this.state = {
       currentPage: '',
-      pageLoading: true
+      pageLoading: true,
+      lobbyInfo: {}
     }
   }
 
@@ -39,16 +41,31 @@ class App extends Component {
     }
   }
 
+  createNewLobby() {
+    const args = Object.assign({
+      method: 'get',
+      headers: {
+        Accept: 'application/json'
+      },
+      responseType: 'json'
+    }, {url: 'http://localhost:5000/create'});
+    axios(args).then((data) => {
+      this.setState({
+        lobbyInfo: data.data
+      })
+    })
+    this.setPage('pizza-lobby')
+  }
+
   render() {
-    console.log(this.state.currentPage)
     return (
       <div className="app">
         <Header />
         {this.state.currentPage === 'home' && 
-          <HomePage setPage={(pageName) => this.setPage(pageName)} />
+          <HomePage createNewLobby={() => this.createNewLobby()} />
         }
         {this.state.currentPage === 'pizza-lobby' && 
-          <Lobby setPage={(pageName) => this.setPage(pageName)} />
+          <Lobby setPage={(pageName) => this.setPage(pageName)} lobbyInfo={this.state.lobbyInfo} />
         }
       </div>
     );

@@ -5,10 +5,10 @@ class Header extends React.Component {
 
   render() {
     return (
-      <header className="header">
+      <div className="header">
         <div className="pizza-logo" />
         <p className="header-title">Pizza Picker</p>
-      </header>
+      </div>
     );
   }
 

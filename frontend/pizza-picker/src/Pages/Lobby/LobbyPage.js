@@ -4,30 +4,21 @@ import axios from 'axios'
 
 class Lobby extends React.Component {
 
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       lobbyInfo: {}
     }
   }
 
-  createNewLobby() {
-    this.props.setPage('pizza-lobby')
-    const args = Object.assign({
-      method: 'get',
-      headers: {
-        Accept: 'application/json'
-      },
-      responseType: 'json'
-    }, {url: 'http://localhost:5000/'});
-    axios(args).then((data) => {
-      this.setState({
-        lobbyInfo: data
-      })
+  componentWillReceiveProps(nextProps) {
+    this.setState({
+      lobbyInfo: nextProps.lobbyInfo
     })
   }
   
   render() {
+    console.log(this.state.lobbyInfo)
     return (
       <div className="lobby-page">
         <div className="top-wrapper">
