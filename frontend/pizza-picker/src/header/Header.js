@@ -1,16 +1,17 @@
-import React from 'react';
-import './Header.css';
+import React from 'react'
+import './Header.css'
 
 class Header extends React.Component {
 
   render() {
     return (
-      <header className="header">
-        <h1 className="header-title">Welcome to React</h1>
-      </header>
+      <div className="header">
+        <div className="pizza-logo" />
+        <p className="header-title">Pizza Picker</p>
+      </div>
     );
   }
 
 }
 
-export default Header;
+export default Header
