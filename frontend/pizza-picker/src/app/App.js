@@ -53,6 +53,9 @@ class App extends Component {
       this.setState({
         lobbyInfo: data.data
       })
+      console.log(data.data)
+      localStorage.setItem('lobbyId', data.data.sid)
+      localStorage.setItem('lobbyList', data.data.sid)
     })
     this.setPage('pizza-lobby')
   }

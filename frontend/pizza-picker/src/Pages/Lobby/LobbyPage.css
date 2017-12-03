@@ -17,3 +17,97 @@
   min-height: 90vh;
   width: 100%; 
 }
+
+.menu-contents {
+  background-color: white;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.top-wrapper {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  justify-items: center;
+}
+
+.dough-text {
+
+}
+
+.dough-options {
+
+}
+
+.menu-grid {
+  padding: 10px;
+  margin: 0 auto;
+  width: 80%;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  justify-items: center;
+  grid-row-gap: 55px;
+}
+
+.hungry-text {
+  grid-row: 1;
+  grid-column: 1;
+}
+
+.radio-buttons {
+  grid-row: 2;
+  grid-column: 2;
+}
+
+.slice-counter {
+  width: 100px;
+}
+
+.ingredients-header {
+  grid-row: 2;
+  grid-column-start: 1;
+  grid-column-end: span 2;
+  padding-bottom: 20px;
+}
+
+.ingredient-picker {
+  grid-row: 3;
+  grid-column-start: 1;
+  grid-column-end: span 2;
+  display: grid;
+  grid-template-columns: 25% 25% 25% 25%;
+  justify-items: center;
+  grid-row-gap: 35px;
+  padding-bottom: 20px;
+}
+
+.ingredient-column1 {
+  grid-column: 1;
+}
+
+.ingredient-column2 {
+  grid-column: 2;
+}
+
+.ingredient-column3 {
+  grid-column: 3;
+}
+
+.ingredient-row1 {
+  grid-row: 1;
+}
+
+.ingredient-row2 {
+  grid-row: 2;
+}
+
+.ingredient-row3 {
+  grid-row: 3;
+}
+
+.ingredient-row4 {
+  grid-row: 4;
+}
+
+.ingredient-row5 {
+  grid-row: 5;
+}
