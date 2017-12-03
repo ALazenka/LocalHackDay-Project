@@ -1,13 +1,12 @@
 from flask import Flask, make_response, request, current_app
 from flask_cors import CORS
 import json, random
-from datetime import timedelta 
-from functools import update_wrapper
 
 app = Flask(__name__)
 CORS(app)
 
 generated_ids = []
+sid_params = {}
 
 @app.route('/create', methods=['GET', 'POST'])
 def generate_ID():
@@ -35,4 +34,19 @@ def logout(sid):
     return json.dumps({"error_code": 666})
   else:
     generated_ids.remove(sid)
+    sid_params.pop(sid)
     return json.dumps({"logged_out": True, "sid":sid})
+
+@app.route('/<string:sid>/submit')
+def submit(sid):
+  args = request.args
+  print(args)
+
+  slices = args["slices"]
+  ingredients = args["ingredients"]
+  ingredients.append("cheese")
+
+  if sid not in sid_params:
+    sid_params[sid] = [[slices, ingredients]]
+  else:
+    sid_params[sid].append(ingredients)
